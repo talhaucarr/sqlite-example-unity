@@ -485,11 +485,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1375412043}
-  - component: {fileID: 1375412044}
   - component: {fileID: 1375412042}
   - component: {fileID: 1375412045}
   - component: {fileID: 1375412046}
   - component: {fileID: 1375412047}
+  - component: {fileID: 1375412044}
   m_Layer: 0
   m_Name: SimpleDB
   m_TagString: Untagged
@@ -509,7 +509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 844c45f6413b9554c9e6c89db12ea6e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dbName: Test
+  _dbName: NordicMMO
 --- !u!4 &1375412043
 Transform:
   m_ObjectHideFlags: 0

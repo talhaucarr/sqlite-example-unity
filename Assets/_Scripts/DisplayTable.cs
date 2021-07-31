@@ -5,19 +5,12 @@ using Mono.Data.Sqlite;
 
 public class DisplayTable : MonoBehaviour
 {
-    private IDatabaseConenction _dbConnection;
     private SqliteConnection _connection;
     private SqliteCommand _command;
 
-    private void Start()
+    public void DisplayWeapons(string query, IDatabaseConenction dbConnection)
     {
-        _dbConnection = GetComponent<IDatabaseConenction>();
-
-    }
-
-    public void DisplayWeapons(string query)
-    {
-        _connection = _dbConnection.ConnectDB();
+        _connection = dbConnection.ConnectDB();
 
         _command = _connection.CreateCommand();
 
@@ -30,6 +23,6 @@ public class DisplayTable : MonoBehaviour
             reader.Close();
         }
 
-        _dbConnection.ConnectionCloseDB();
+        dbConnection.ConnectionCloseDB();
     }
 }

@@ -20,11 +20,18 @@ public class DatabaseController : MonoBehaviour
         _insertValues = GetComponent<InsertValues>();
         _displayTable = GetComponent<DisplayTable>();
 
-        _createTable.CreateDB("CREATE TABLE IF NOT EXISTS weapons (name VARCHAR(20), damage INT);");
+        CreatGameTables();
 
-        _insertValues.AddValues("INSERT INTO weapons(name, damage) VALUES ('ss', 20);");
+        //_insertValues.AddValues("INSERT INTO users (username, password, email) VALUES ('talha', 'talha41', 'talhaucrr@gmail.com');", _dbConnection);
+        _insertValues.AddValues("INSERT INTO weapons (ownerID, weaponName,damage) VALUES (1, 'kilic', 55);", _dbConnection);
+        //_displayTable.DisplayWeapons("SELECT * FROM weapons;", _dbConnection);
+    }
 
-        _displayTable.DisplayWeapons("SELECT * FROM weapons;");
+    private void CreatGameTables()
+
+    {
+        _createTable.CreateDB("CREATE TABLE IF NOT EXISTS users (userID integer PRIMARY KEY, username VARCHAR(20), password VARCHAR(20), email VARCHAR(35));", _dbConnection);
+        _createTable.CreateDB("CREATE TABLE IF NOT EXISTS weapons (weaponID integer PRIMARY KEY, ownerID integer, weaponName VARCHAR(20), damage integer, FOREIGN KEY(ownerID) REFERENCES users(userID));", _dbConnection);
     }
 
     private void InitDatabaseConnection()
@@ -32,8 +39,4 @@ public class DatabaseController : MonoBehaviour
         _dbConnection = GetComponent<IDatabaseConenction>();
         _dbConnection.SetDBName(_dbName);
     }
-
-
-
-
 }
