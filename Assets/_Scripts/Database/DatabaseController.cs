@@ -10,6 +10,8 @@ public class DatabaseController : MonoBehaviour
 
     private IDatabaseConenction _dbConnection;
     private RegisterUser _registerUser;
+    private LoginUser _loginUser;
+
     private CreateTable _createTable;
     private InsertValues _insertValues;
     private DisplayTable _displayTable;
@@ -19,6 +21,7 @@ public class DatabaseController : MonoBehaviour
         InitDatabaseConnection();
 
         _registerUser = GetComponent<RegisterUser>();
+        _loginUser = GetComponent<LoginUser>();
 
         _createTable = GetComponent<CreateTable>();
         _insertValues = GetComponent<InsertValues>();
@@ -52,5 +55,12 @@ public class DatabaseController : MonoBehaviour
 
         _insertValues.AddValues("INSERT INTO users (username, password, email) VALUES ('"+ _registerUser.Username.text + "','" + _registerUser.Password.text + "','" + _registerUser.Email.text + "');", _dbConnection);
         Debug.Log("Kayit Basarili!");
+    }
+
+    public void Login()
+    {
+        Debug.Log("Login tiklandi");
+        _loginUser.Login(_dbConnection);
+        
     }
 }

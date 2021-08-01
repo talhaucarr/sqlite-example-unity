@@ -13,4 +13,5 @@ public class RegisterUser : MonoBehaviour
     public TMP_InputField Username { get => username; }
     public TMP_InputField Password { get => password; }
     public TMP_InputField Email { get => email; }
+
 }
