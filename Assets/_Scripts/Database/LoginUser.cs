@@ -12,20 +12,32 @@ public class LoginUser : MonoBehaviour
     private SqliteConnection _connection;
     private SqliteCommand _command;
 
-    public TMP_InputField Username { get => username; }
-    public TMP_InputField Password { get => password; }
+    private bool _isLogin = false;
 
     public void Login(IDatabaseConenction dbConnection)
-    {
-        Debug.Log("here");
+    {       
         _connection = dbConnection.ConnectDB();
 
         _command = _connection.CreateCommand();
 
-        _command.CommandText = "SELECT username from users WHERE username='"+username+ "' AND password = '" + password + "';";
+        _command.CommandText = "SELECT * from users WHERE username='"+username.text+"' AND password ='"+password.text+"';";
 
+        using (SqliteDataReader reader = _command.ExecuteReader())
+        {
+            while (reader.Read())
+            {
+                Debug.Log("Name:" + reader["username"] + "\tDamage:" + reader["password"]);
+                _isLogin = true;
+            }
+                
+            reader.Close();
+        }
+
+        if (!_isLogin)
+        {
+            ErrorManager.Instance.TriggerLoginError("Kullanici adi veya Sifre hatali!");
+        }
         dbConnection.ConnectionCloseDB();
-
     }
 
 }

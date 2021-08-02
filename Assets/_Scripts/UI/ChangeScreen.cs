@@ -6,6 +6,7 @@ public class ChangeScreen : MonoBehaviour
 {
     [SerializeField] private GameObject loginScreen;
     [SerializeField] private GameObject registerScreen;
+    [SerializeField] private GameObject errorScreen;
     
     public void EnableLoginScreen()
     {
@@ -17,6 +18,11 @@ public class ChangeScreen : MonoBehaviour
     {
         loginScreen.SetActive(false);
         registerScreen.SetActive(true);
+    }
+
+    public void SetActive()
+    {
+        errorScreen.SetActive(false);
     }
     
     public void ExitGame()
