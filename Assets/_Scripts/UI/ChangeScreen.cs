@@ -18,4 +18,9 @@ public class ChangeScreen : MonoBehaviour
         loginScreen.SetActive(false);
         registerScreen.SetActive(true);
     }
+    
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }

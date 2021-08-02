@@ -35,7 +35,6 @@ public class DatabaseController : MonoBehaviour
     }
 
     private void CreatGameTables()
-
     {
         _createTable.CreateDB("CREATE TABLE IF NOT EXISTS users (userID integer PRIMARY KEY, username VARCHAR(20), password VARCHAR(20), email VARCHAR(35));", _dbConnection);
         _createTable.CreateDB("CREATE TABLE IF NOT EXISTS weapons (weaponID integer PRIMARY KEY, ownerID integer, weaponName VARCHAR(20), damage integer, price integer, FOREIGN KEY(ownerID) REFERENCES users(userID));", _dbConnection);
