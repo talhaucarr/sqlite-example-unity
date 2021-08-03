@@ -26,7 +26,7 @@ public class RegisterUser : MonoBehaviour
         _insertValues.AddValues("INSERT INTO users (username, password, email) VALUES ('" + username.text + "','" + password.text + "','" + email.text + "');", dbConnection);
         _registeredID = UserInfoManager.Instance.GetUserID(username.text, dbConnection);
 
-        _insertValues.AddValues($"INSERT INTO userStats(userID,level,str,dex,vitality) VALUES ({_registeredID}, {1}, {10}, {10}, {10});", dbConnection);
+        _insertValues.AddValues($"INSERT INTO userStats(userID,level,exp,str,dex,vitality) VALUES ({_registeredID}, {1},{0}, {10}, {10}, {10});", dbConnection);
     }
 
     

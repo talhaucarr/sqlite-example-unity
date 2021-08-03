@@ -8,6 +8,7 @@ public class UserStatsManager : AutoCleanupSingleton<UserStatsManager>
 {
     [SerializeField] private TextMeshProUGUI usernameText;
     [SerializeField] private TextMeshProUGUI levelText;
+    [SerializeField] private TextMeshProUGUI expText;
     [SerializeField] private TextMeshProUGUI goldText;
     [SerializeField] private TextMeshProUGUI strText;
     [SerializeField] private TextMeshProUGUI dexText;
@@ -17,6 +18,7 @@ public class UserStatsManager : AutoCleanupSingleton<UserStatsManager>
     [SerializeField] [ShowOnly] private int userID;
     [SerializeField] [ShowOnly] private string username;
     [SerializeField] [ShowOnly] private int level;
+    [SerializeField] [ShowOnly] private int exp;
 
     [Header("Inventory")]
     [SerializeField] [ShowOnly] private int totalGold;
@@ -41,6 +43,12 @@ public class UserStatsManager : AutoCleanupSingleton<UserStatsManager>
     {
         get { return level; }
         set { level = value; }
+    }
+
+    public int Exp
+    {
+        get { return exp; }
+        set { exp = value; }
     }
     public int TotalGold
     {
@@ -67,6 +75,7 @@ public class UserStatsManager : AutoCleanupSingleton<UserStatsManager>
     {
         usernameText.text = username;
         levelText.text = level.ToString();
+        expText.text = exp.ToString();
         goldText.text = totalGold.ToString();
         strText.text = str.ToString();
         dexText.text = dex.ToString();

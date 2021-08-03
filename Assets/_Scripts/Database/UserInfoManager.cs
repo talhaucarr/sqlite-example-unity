@@ -59,6 +59,7 @@ public class UserInfoManager : AutoCleanupSingleton<UserInfoManager>
             while (reader.Read())
             {
                 UserStatsManager.Instance.Level = int.Parse(reader["level"].ToString());
+                UserStatsManager.Instance.Exp = int.Parse(reader["exp"].ToString());
                 UserStatsManager.Instance.STR = int.Parse(reader["str"].ToString());
                 UserStatsManager.Instance.DEX = int.Parse(reader["dex"].ToString());
                 UserStatsManager.Instance.VIT = int.Parse(reader["vitality"].ToString());                

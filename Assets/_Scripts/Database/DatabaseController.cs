@@ -34,7 +34,7 @@ public class DatabaseController : MonoBehaviour
     {
         _createTable.CreateDB("CREATE TABLE IF NOT EXISTS users (userID integer PRIMARY KEY, username VARCHAR(20), password VARCHAR(20), email VARCHAR(35));", _dbConnection);
         _createTable.CreateDB("CREATE TABLE IF NOT EXISTS weapons (weaponID integer PRIMARY KEY, ownerID integer, weaponName VARCHAR(20), damage integer, price integer, FOREIGN KEY(ownerID) REFERENCES users(userID));", _dbConnection);
-        _createTable.CreateDB("CREATE TABLE IF NOT EXISTS userStats (statID integer PRIMARY KEY, userID integer, level integer,str integer, dex integer, vitality integer, FOREIGN KEY(userID) REFERENCES users(userID));", _dbConnection);
+        _createTable.CreateDB("CREATE TABLE IF NOT EXISTS userStats (statID integer PRIMARY KEY, userID integer, level integer,exp integer,str integer, dex integer, vitality integer, FOREIGN KEY(userID) REFERENCES users(userID));", _dbConnection);
         _createTable.CreateDB("CREATE TABLE IF NOT EXISTS userInventory (inventoryID integer PRIMARY KEY, userID integer, weaponID integer, gold integer, FOREIGN KEY(userID) REFERENCES users(userID), FOREIGN KEY(weaponID) REFERENCES weapons(weaponID));", _dbConnection);
         _createTable.CreateDB("CREATE TABLE IF NOT EXISTS market (saleID integer PRIMARY KEY, ownerID integer, price integer, FOREIGN KEY(ownerID) REFERENCES users(userID));", _dbConnection);
     }
