@@ -12,6 +12,7 @@ public class RegisterUser : MonoBehaviour
     [SerializeField] TMP_InputField email;
 
     private InsertValues _insertValues;
+    private int _registeredID;
 
     private void Start()
     {
@@ -23,5 +24,10 @@ public class RegisterUser : MonoBehaviour
         if (_insertValues.IsUsernameTaken(username.text, dbConnection)) return;
         
         _insertValues.AddValues("INSERT INTO users (username, password, email) VALUES ('" + username.text + "','" + password.text + "','" + email.text + "');", dbConnection);
+        _registeredID = UserInfoManager.Instance.GetUserID(username.text, dbConnection);
+
+        _insertValues.AddValues($"INSERT INTO userStats(userID,level,str,dex,vitality) VALUES ({_registeredID}, {1}, {10}, {10}, {10});", dbConnection);
     }
+
+    
 }

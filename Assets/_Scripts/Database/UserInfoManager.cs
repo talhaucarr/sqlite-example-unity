@@ -4,11 +4,29 @@ using UnityEngine;
 using Mono.Data.Sqlite;
 using Utilities;
 
-public class UserInfo : AutoCleanupSingleton<UserInfo>
+public class UserInfoManager : AutoCleanupSingleton<UserInfoManager>
 {
-
     private SqliteConnection _connection;
     private SqliteCommand _command;
+
+    public int GetUserID(string username, IDatabaseConenction dbConnection)
+    {
+        _connection = dbConnection.ConnectDB();
+
+        _command = _connection.CreateCommand();
+
+        _command.CommandText = "SELECT * from users WHERE username='" + username + "';";
+        using (SqliteDataReader reader = _command.ExecuteReader())
+        {
+            while (reader.Read())
+            {
+                return int.Parse(reader["userID"].ToString());
+            }
+            reader.Close();
+        }
+        dbConnection.ConnectionCloseDB();
+        return 0;
+    }
 
     public void GetUserInfo(int userID, IDatabaseConenction dbConnection)
     {
@@ -21,8 +39,8 @@ public class UserInfo : AutoCleanupSingleton<UserInfo>
         {
             while (reader.Read())
             {
-                UserManager.Instance.UserID = userID;
-                UserManager.Instance.Username = (string)reader["username"];  
+                UserStatsManager.Instance.UserID = userID;
+                UserStatsManager.Instance.Username = (string)reader["username"];  
             }
             reader.Close();
         }
@@ -40,10 +58,10 @@ public class UserInfo : AutoCleanupSingleton<UserInfo>
         {
             while (reader.Read())
             {
-                UserManager.Instance.DEX = int.Parse(reader["level"].ToString());
-                UserManager.Instance.STR = int.Parse(reader["str"].ToString());
-                UserManager.Instance.DEX = int.Parse(reader["dex"].ToString());
-                UserManager.Instance.STR = int.Parse(reader["vitality"].ToString());                
+                UserStatsManager.Instance.Level = int.Parse(reader["level"].ToString());
+                UserStatsManager.Instance.STR = int.Parse(reader["str"].ToString());
+                UserStatsManager.Instance.DEX = int.Parse(reader["dex"].ToString());
+                UserStatsManager.Instance.VIT = int.Parse(reader["vitality"].ToString());                
             }
             reader.Close();
         }

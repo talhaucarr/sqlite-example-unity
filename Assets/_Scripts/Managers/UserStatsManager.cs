@@ -2,9 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Utilities;
+using TMPro;
 
-public class UserManager : AutoCleanupSingleton<UserManager>
+public class UserStatsManager : AutoCleanupSingleton<UserStatsManager>
 {
+    [SerializeField] private TextMeshProUGUI usernameText;
+    [SerializeField] private TextMeshProUGUI levelText;
+    [SerializeField] private TextMeshProUGUI goldText;
+    [SerializeField] private TextMeshProUGUI strText;
+    [SerializeField] private TextMeshProUGUI dexText;
+    [SerializeField] private TextMeshProUGUI vitText;
+
     [Header("Informations")]
     [SerializeField] [ShowOnly] private int userID;
     [SerializeField] [ShowOnly] private string username;
@@ -53,5 +61,15 @@ public class UserManager : AutoCleanupSingleton<UserManager>
     {
         get { return vitality; }
         set { vitality = value; }
+    }
+
+    public void UpdateUserStatsUI()
+    {
+        usernameText.text = username;
+        levelText.text = level.ToString();
+        goldText.text = totalGold.ToString();
+        strText.text = str.ToString();
+        dexText.text = dex.ToString();
+        vitText.text = vitality.ToString();
     }
 }

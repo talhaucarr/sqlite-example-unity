@@ -42,9 +42,11 @@ public class LoginUser : MonoBehaviour
             return false;
         }
 
-        UserInfo.Instance.GetUserInfo(temp, dbConnection);
-        UserInfo.Instance.GetUserStatsInfo(temp, dbConnection);
-
+        UserInfoManager.Instance.GetUserInfo(temp, dbConnection);
+        UserInfoManager.Instance.GetUserStatsInfo(temp, dbConnection);
+        UserStatsManager.Instance.UpdateUserStatsUI();
+        CanvasManager.Instance.EnableGameScreen();
+        
 
         dbConnection.ConnectionCloseDB();
         return true;

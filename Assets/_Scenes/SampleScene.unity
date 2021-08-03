@@ -167,6 +167,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debug: 1
+  usernameText: {fileID: 28730177}
+  levelText: {fileID: 373902672}
+  goldText: {fileID: 1534466250}
+  strText: {fileID: 1611132103}
+  dexText: {fileID: 1428685789}
+  vitText: {fileID: 1633789331}
   userID: 0
   username: 
   level: 0
@@ -1315,8 +1321,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debug: 1
-  loginCanvas: {fileID: 0}
-  gameCanvas: {fileID: 0}
+  loginCanvas: {fileID: 1980643001}
+  gameCanvas: {fileID: 538184655}
   loginScreen: {fileID: 97546819}
   registerScreen: {fileID: 1451932391}
 --- !u!4 &542482026
@@ -4217,6 +4223,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1891137881426960495, guid: 1069bd77baa9350478544f859106fbc2, type: 3}
+      propertyPath: firstInput
+      value: 
+      objectReference: {fileID: 1045460805}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1069bd77baa9350478544f859106fbc2, type: 3}
 --- !u!224 &3592421024322103788 stripped
