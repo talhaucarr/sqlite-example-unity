@@ -69,14 +69,14 @@ public class UserInfoManager : AutoCleanupSingleton<UserInfoManager>
         dbConnection.ConnectionCloseDB();
     }
 
-    public void GetUserInventoryInfo(int userID, IDatabaseConenction dbConnection)
-    {
-        _connection = dbConnection.ConnectDB();
+    //public void GetUserInventoryInfo(int userID, IDatabaseConenction dbConnection)
+    //{
+    //    _connection = dbConnection.ConnectDB();
 
-        _command = _connection.CreateCommand();
+    //    _command = _connection.CreateCommand();
 
-        _command.CommandText = "SELECT * from userInventory WHERE userID='" + userID + "';";
-        _command.ExecuteNonQuery();
-        dbConnection.ConnectionCloseDB();
-    }
+    //    _command.CommandText = "SELECT * from userInventory WHERE userID='" + userID + "';";
+    //    _command.ExecuteNonQuery();
+    //    dbConnection.ConnectionCloseDB();
+    //}
 }
