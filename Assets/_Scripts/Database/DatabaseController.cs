@@ -23,18 +23,18 @@ public class DatabaseController : MonoBehaviour
 
         _createTable = GetComponent<CreateTable>();
 
-        CreatGameTables();
+        CreatGameTablesIfNotExists();
 
         //_insertValues.AddValues("INSERT INTO users (username, password, email) VALUES ('talha', 'talha41', 'talhaucrr@gmail.com');", _dbConnection);
         //_insertValues.AddValues("INSERT INTO weapons (ownerID, weaponName,damage) VALUES (1, 'kilic', 55);", _dbConnection);
         //_displayTable.DisplayWeapons("SELECT * FROM weapons;", _dbConnection);
     }
 
-    private void CreatGameTables()
+    private void CreatGameTablesIfNotExists()
     {
         _createTable.CreateDB("CREATE TABLE IF NOT EXISTS users (userID integer PRIMARY KEY, username VARCHAR(20), password VARCHAR(20), email VARCHAR(35));", _dbConnection);
         _createTable.CreateDB("CREATE TABLE IF NOT EXISTS weapons (weaponID integer PRIMARY KEY, ownerID integer, weaponName VARCHAR(20), damage integer, price integer, FOREIGN KEY(ownerID) REFERENCES users(userID));", _dbConnection);
-        _createTable.CreateDB("CREATE TABLE IF NOT EXISTS userStats (statID integer PRIMARY KEY, userID integer, str integer, dex integer vitality integer, FOREIGN KEY(userID) REFERENCES users(userID));", _dbConnection);
+        _createTable.CreateDB("CREATE TABLE IF NOT EXISTS userStats (statID integer PRIMARY KEY, userID integer, level integer,str integer, dex integer, vitality integer, FOREIGN KEY(userID) REFERENCES users(userID));", _dbConnection);
         _createTable.CreateDB("CREATE TABLE IF NOT EXISTS userInventory (inventoryID integer PRIMARY KEY, userID integer, weaponID integer, gold integer, FOREIGN KEY(userID) REFERENCES users(userID), FOREIGN KEY(weaponID) REFERENCES weapons(weaponID));", _dbConnection);
         _createTable.CreateDB("CREATE TABLE IF NOT EXISTS market (saleID integer PRIMARY KEY, ownerID integer, price integer, FOREIGN KEY(ownerID) REFERENCES users(userID));", _dbConnection);
     }
@@ -54,7 +54,7 @@ public class DatabaseController : MonoBehaviour
     public void Login()
     {
         Debug.Log("Login tiklandi");
-        _loginUser.Login(_dbConnection);
+        if (!_loginUser.Login(_dbConnection)) { return; }
         
     }
 }

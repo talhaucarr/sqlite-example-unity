@@ -11,11 +11,13 @@ public class LoginUser : MonoBehaviour
 
     private SqliteConnection _connection;
     private SqliteCommand _command;
-
+    private int temp;
     private bool _isLogin = false;
 
-    public void Login(IDatabaseConenction dbConnection)
-    {       
+    public bool Login(IDatabaseConenction dbConnection)
+    {
+
+        
         _connection = dbConnection.ConnectDB();
 
         _command = _connection.CreateCommand();
@@ -26,7 +28,8 @@ public class LoginUser : MonoBehaviour
         {
             while (reader.Read())
             {
-                Debug.Log("Name:" + reader["username"] + "\tDamage:" + reader["password"]);
+                Debug.Log("Name:" + reader["userID"].GetType() + "\tDamage:" + reader["password"]);
+                temp = int.Parse(reader["userID"].ToString());
                 _isLogin = true;
             }
                 
@@ -36,8 +39,15 @@ public class LoginUser : MonoBehaviour
         if (!_isLogin)
         {
             ErrorManager.Instance.TriggerErrorMessage("Login Error","Kullanici adi veya Sifre hatali!");
+            return false;
         }
+
+        UserInfo.Instance.GetUserInfo(temp, dbConnection);
+        UserInfo.Instance.GetUserStatsInfo(temp, dbConnection);
+
+
         dbConnection.ConnectionCloseDB();
+        return true;
     }
 
 }
