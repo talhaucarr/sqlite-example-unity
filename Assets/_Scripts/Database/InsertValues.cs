@@ -43,7 +43,7 @@ public class InsertValues : MonoBehaviour
 
         if (_isRegistered)
         {
-            ErrorManager.Instance.TriggerLoginError("Kullanici adi daha onceden alinmis!");
+            ErrorManager.Instance.TriggerErrorMessage("Register Error","Kullanici adi daha onceden alinmis!");
             return true;
         }
 

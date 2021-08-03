@@ -7,11 +7,13 @@ using TMPro;
 public class ErrorManager : AutoCleanupSingleton<ErrorManager>
 {
     [SerializeField] private GameObject errorScreen;
+    [SerializeField] private TextMeshProUGUI errorHeader;
     [SerializeField] private TextMeshProUGUI errorMessage;
 
-    public void TriggerLoginError(string message)
+    public void TriggerErrorMessage(string header,string message)
     {
         errorScreen.SetActive(true);
         errorMessage.text = message;
+        errorHeader.text = header;
     }
 }

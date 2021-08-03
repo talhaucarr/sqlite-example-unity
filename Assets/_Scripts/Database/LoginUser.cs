@@ -35,7 +35,7 @@ public class LoginUser : MonoBehaviour
 
         if (!_isLogin)
         {
-            ErrorManager.Instance.TriggerLoginError("Kullanici adi veya Sifre hatali!");
+            ErrorManager.Instance.TriggerErrorMessage("Login Error","Kullanici adi veya Sifre hatali!");
         }
         dbConnection.ConnectionCloseDB();
     }
