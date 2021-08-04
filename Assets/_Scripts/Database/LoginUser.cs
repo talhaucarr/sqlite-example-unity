@@ -15,9 +15,7 @@ public class LoginUser : MonoBehaviour
     private bool _isLogin = false;
 
     public bool Login(IDatabaseConenction dbConnection)
-    {
-
-        
+    {      
         _connection = dbConnection.ConnectDB();
 
         _command = _connection.CreateCommand();
@@ -28,7 +26,6 @@ public class LoginUser : MonoBehaviour
         {
             while (reader.Read())
             {
-                Debug.Log("Name:" + reader["userID"].GetType() + "\tDamage:" + reader["password"]);
                 temp = int.Parse(reader["userID"].ToString());
                 _isLogin = true;
             }

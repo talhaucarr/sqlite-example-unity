@@ -16,4 +16,9 @@ public class ErrorManager : AutoCleanupSingleton<ErrorManager>
         errorMessage.text = message;
         errorHeader.text = header;
     }
+
+    public void SetActiveFalse()
+    {
+        errorScreen.SetActive(false);
+    }
 }
