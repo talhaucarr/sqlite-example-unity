@@ -19,6 +19,7 @@ public class CanvasManager : AutoCleanupSingleton<CanvasManager>
     [SerializeField] private GameObject statsScreen;
     [SerializeField] private GameObject dungeonScreen;
     [SerializeField] private GameObject shopScreen;
+    [SerializeField] private GameObject gainWindow;
 
     public void EnableGameScreen()
     {
@@ -76,6 +77,26 @@ public class CanvasManager : AutoCleanupSingleton<CanvasManager>
         dungeonScreen.SetActive(true);
         statsScreen.SetActive(false);
     }
+
+    public void BackGameScreen()
+    {
+        middlePanel.SetActive(true);
+        envanterScreen.SetActive(false);
+        shopScreen.SetActive(false);
+        dungeonScreen.SetActive(false);
+        statsScreen.SetActive(false);
+    }
+
+    public void DisableAllGameScreen()
+    {
+        middlePanel.SetActive(false);
+        envanterScreen.SetActive(false);
+        shopScreen.SetActive(false);
+        dungeonScreen.SetActive(false);
+        statsScreen.SetActive(false);
+    }
+
+
 
     public void ExitGame()
     {
