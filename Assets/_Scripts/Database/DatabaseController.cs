@@ -24,10 +24,6 @@ public class DatabaseController : MonoBehaviour
         _createTable = GetComponent<CreateTable>();
 
         CreatGameTablesIfNotExists();
-
-        //_insertValues.AddValues("INSERT INTO users (username, password, email) VALUES ('talha', 'talha41', 'talhaucrr@gmail.com');", _dbConnection);
-        //_insertValues.AddValues("INSERT INTO weapons (ownerID, weaponName,damage) VALUES (1, 'kilic', 55);", _dbConnection);
-        //_displayTable.DisplayWeapons("SELECT * FROM weapons;", _dbConnection);
     }
 
     private void CreatGameTablesIfNotExists()

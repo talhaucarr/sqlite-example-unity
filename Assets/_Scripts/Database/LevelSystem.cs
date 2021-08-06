@@ -50,4 +50,16 @@ public class LevelSystem : MonoBehaviour
 
         dbConnection.ConnectionCloseDB();
     }
+
+    public void GainExp(float exp)
+    {
+        _connection = _dbConnection.ConnectDB();
+
+        _command = _connection.CreateCommand();
+
+        _command.CommandText = $"UPDATE stats SET exp = {exp} WHERE userID = {_userID}; ";
+        _command.ExecuteNonQuery();
+
+        _dbConnection.ConnectionCloseDB();
+    }
 }
