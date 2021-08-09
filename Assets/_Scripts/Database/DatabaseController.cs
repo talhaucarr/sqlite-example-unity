@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mono.Data.Sqlite;
 using TMPro;
+using Utilities;
 
-public class DatabaseController : MonoBehaviour
+public class DatabaseController : AutoCleanupSingleton<DatabaseController>
 {
     [SerializeField] private string _dbName;
 
-    private IDatabaseConenction _dbConnection;
+    public IDatabaseConenction _dbConnection;
     private RegisterUser _registerUser;
     private LoginUser _loginUser;
+   
 
     private CreateTable _createTable;
     
@@ -20,7 +22,6 @@ public class DatabaseController : MonoBehaviour
 
         _registerUser = GetComponent<RegisterUser>();
         _loginUser = GetComponent<LoginUser>();
-
         _createTable = GetComponent<CreateTable>();
 
         CreatGameTablesIfNotExists();
@@ -44,13 +45,10 @@ public class DatabaseController : MonoBehaviour
     public void Register()
     {
         _registerUser.Register(_dbConnection);     
-        Debug.Log("Kayit Basarili!");
     }
 
     public void Login()
     {
-        Debug.Log("Login tiklandi");
-        if (!_loginUser.Login(_dbConnection)) { return; }
-        
+        if (!_loginUser.Login(_dbConnection)) { return; }       
     }
 }

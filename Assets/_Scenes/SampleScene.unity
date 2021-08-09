@@ -4992,6 +4992,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 844c45f6413b9554c9e6c89db12ea6e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debug: 1
   _dbName: NordicMMO
 --- !u!4 &1375412043
 Transform:
@@ -5084,6 +5085,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   username: {fileID: 28035014}
   password: {fileID: 1060110794}
+  _levelSystem: {fileID: 539799602}
 --- !u!1 &1392862692
 GameObject:
   m_ObjectHideFlags: 0

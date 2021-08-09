@@ -9,10 +9,13 @@ public class LoginUser : MonoBehaviour
     [SerializeField] TMP_InputField username;
     [SerializeField] TMP_InputField password;
 
+    [SerializeField]private LevelSystem _levelSystem;
+
     private SqliteConnection _connection;
     private SqliteCommand _command;
     private int temp;
     private bool _isLogin = false;
+
 
     public bool Login(IDatabaseConenction dbConnection)
     {      
@@ -40,8 +43,9 @@ public class LoginUser : MonoBehaviour
         }
 
         UserInfoManager.Instance.GetUserInfo(temp, dbConnection);
-        UserInfoManager.Instance.GetUserStatsInfo(temp, dbConnection);
+        UserInfoManager.Instance.GetUserStatsInfo(temp, dbConnection);    
         UserStatsManager.Instance.UpdateUserStatsUI();
+       
         CanvasManager.Instance.EnableGameScreen();
         
 

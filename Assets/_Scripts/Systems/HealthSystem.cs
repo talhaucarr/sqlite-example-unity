@@ -13,6 +13,11 @@ public class HealthSystem : MonoBehaviour
 
     private void Start()
     {
+        InitHealthSystem();
+    }
+
+    public void InitHealthSystem()
+    {
         _levelSystem = GetComponent<LevelSystem>();
         _curHealth = maxHealth;
     }
@@ -24,6 +29,7 @@ public class HealthSystem : MonoBehaviour
         if (IsDead()){
             _curHealth = 0;
             Death();
+            _curHealth = 100;
         }
     }
 
@@ -35,7 +41,8 @@ public class HealthSystem : MonoBehaviour
     private void Death()
     {
         //TODOc
-        _levelSystem.GainExp(15);
+        Debug.Log("Mob oldu");
+        _levelSystem.GainExp(1);
         CanvasManager.Instance.DisableAllGameScreen();
         GainManager.Instance.TriggerErrorMessage("Kazanc", "kazandin!");
         
