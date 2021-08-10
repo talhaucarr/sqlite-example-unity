@@ -26,7 +26,8 @@ public class DropWeapon : MonoBehaviour
             while (reader.Read())
                 weaponCount++;
           
-            randomWeaponID = Random.RandomRange(0, weaponCount + 1);
+            randomWeaponID = Random.RandomRange(1, weaponCount + 1);
+            Debug.Log(randomWeaponID);
 
             SelectRandomWeapon(randomWeaponID);
             

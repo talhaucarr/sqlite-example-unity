@@ -10,6 +10,7 @@ public class UserStatsManager : AutoCleanupSingleton<UserStatsManager>
     [SerializeField] private TextMeshProUGUI levelText;
     [SerializeField] private TextMeshProUGUI expText;
     [SerializeField] private TextMeshProUGUI goldText;
+    [SerializeField] private TextMeshProUGUI statPointsText;
     [SerializeField] private TextMeshProUGUI strText;
     [SerializeField] private TextMeshProUGUI dexText;
     [SerializeField] private TextMeshProUGUI vitText;
@@ -24,6 +25,7 @@ public class UserStatsManager : AutoCleanupSingleton<UserStatsManager>
     [SerializeField] [ShowOnly] private int totalGold;
 
     [Header("Stats")]
+    [SerializeField] [ShowOnly] private int points;
     [SerializeField] [ShowOnly] private int str;
     [SerializeField] [ShowOnly] private int dex;
     [SerializeField] [ShowOnly] private int vitality;
@@ -55,6 +57,12 @@ public class UserStatsManager : AutoCleanupSingleton<UserStatsManager>
         get { return totalGold; }
         set { totalGold = value; }
     }
+
+    public int StatPoints
+    {
+        get { return points; }
+        set { points = value; }
+    }
     public int STR
     {
         get { return str; }
@@ -77,6 +85,7 @@ public class UserStatsManager : AutoCleanupSingleton<UserStatsManager>
         levelText.text = level.ToString();
         expText.text = exp.ToString();
         goldText.text = totalGold.ToString();
+        statPointsText.text = points.ToString();
         strText.text = str.ToString();
         dexText.text = dex.ToString();
         vitText.text = vitality.ToString();
