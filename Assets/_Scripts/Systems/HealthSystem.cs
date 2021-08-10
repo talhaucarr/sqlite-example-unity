@@ -9,11 +9,13 @@ public class HealthSystem : MonoBehaviour
     [SerializeField] [ShowOnly] private float _curHealth;
 
     private LevelSystem _levelSystem;
+    private DropWeapon _dropWeapon;
     
 
     private void Start()
     {
         InitHealthSystem();
+        _dropWeapon = GetComponent<DropWeapon>();
     }
 
     public void InitHealthSystem()
@@ -43,6 +45,7 @@ public class HealthSystem : MonoBehaviour
         //TODOc
         Debug.Log("Mob oldu");
         _levelSystem.GainExp(1);
+        _dropWeapon.RandomWeapon();
         CanvasManager.Instance.DisableAllGameScreen();
         GainManager.Instance.TriggerErrorMessage("Kazanc", "kazandin!");
         

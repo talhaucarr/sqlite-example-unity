@@ -5264,6 +5264,7 @@ GameObject:
   - component: {fileID: 1446849349}
   - component: {fileID: 1446849351}
   - component: {fileID: 1446849352}
+  - component: {fileID: 1446849353}
   m_Layer: 5
   m_Name: Enemy Sprite
   m_TagString: Untagged
@@ -5356,6 +5357,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c5daa8f433ee3ee42a33d516001ee02a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1446849353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1446849347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d92a68c23488a6f4299b5eddb70b5ec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1451932391
