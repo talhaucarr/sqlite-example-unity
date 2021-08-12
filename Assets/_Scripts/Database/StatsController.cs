@@ -25,6 +25,9 @@ public class StatsController : MonoBehaviour
 
     private int _curPoints;
     private int _maxPoints;
+    private int _strPoints;
+    private int _dexPoints;
+    private int _vitPoints;
 
     private void Start()
     {
@@ -43,25 +46,25 @@ public class StatsController : MonoBehaviour
             vitUpButton.gameObject.SetActive(false);
             
         }
-        if(_curPoints == _maxPoints)
-        {
-            strDownButton.gameObject.SetActive(false);
-            dexDownButton.gameObject.SetActive(false);
-            vitDownButton.gameObject.SetActive(false);
-        }
-        else
-        {
-            strDownButton.gameObject.SetActive(true);
-            dexDownButton.gameObject.SetActive(true);
-            vitDownButton.gameObject.SetActive(true);
-        }
+
+        if(_strPoints < UserStatsManager.Instance.STR) { strDownButton.gameObject.SetActive(true); }
+        else { strDownButton.gameObject.SetActive(false); }
+
+        if (_dexPoints < UserStatsManager.Instance.DEX) { dexDownButton.gameObject.SetActive(true); }
+        else { dexDownButton.gameObject.SetActive(false); }
+
+        if (_vitPoints < UserStatsManager.Instance.VIT) { vitDownButton.gameObject.SetActive(true); }
+        else { vitDownButton.gameObject.SetActive(false); }
+
     }
 
     public void InitCurPoints()
     {
         _curPoints = UserStatsManager.Instance.StatPoints;
         _maxPoints = UserStatsManager.Instance.StatPoints;
-       
+        _strPoints = UserStatsManager.Instance.STR;
+        _dexPoints = UserStatsManager.Instance.DEX;
+        _vitPoints = UserStatsManager.Instance.VIT;
     }
 
     public void STRUp()

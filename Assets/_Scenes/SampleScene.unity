@@ -2033,7 +2033,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 296782270}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1801631274}
+        m_TargetAssemblyTypeName: StatsController, Assembly-CSharp
+        m_MethodName: VITUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &296782270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3190,7 +3202,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 521231127}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1801631274}
+        m_TargetAssemblyTypeName: StatsController, Assembly-CSharp
+        m_MethodName: VITDown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &521231127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6404,7 +6428,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1234380105}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1801631274}
+        m_TargetAssemblyTypeName: StatsController, Assembly-CSharp
+        m_MethodName: DEXDown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1234380105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8129,7 +8165,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1487149133}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1801631274}
+        m_TargetAssemblyTypeName: StatsController, Assembly-CSharp
+        m_MethodName: DEXUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1487149133
 MonoBehaviour:
   m_ObjectHideFlags: 0
